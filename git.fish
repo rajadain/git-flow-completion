@@ -118,6 +118,11 @@ complete -f -c git -n '__fish_git_flow_using_command feature finish' -s F -d 'Fe
 complete -f -c git -n '__fish_git_flow_using_command feature finish' -s r -d 'Rebase instead of merging'
 complete -f -c git -n '__fish_git_flow_using_command feature finish' -a '(__fish_git_flow_branches feature)' -d 'Feature branch'
 
+complete -f -c git -n '__fish_git_flow_using_command feature' -a delete   -d 'Delete a feature branch'
+complete -f -c git -n '__fish_git_flow_using_command feature delete' -s f -d 'Force deletion'
+complete -f -c git -n '__fish_git_flow_using_command feature delete' -s r -d 'Delete remote branch'
+complete -f -c git -n '__fish_git_flow_using_command feature delete' -a '(__fish_git_flow_branches feature)' -d 'Feature branch'
+
 complete -f -c git -n '__fish_git_flow_using_command feature' -a publish  -d 'Publish a feature branch to remote'
 complete -f -c git -n '__fish_git_flow_using_command feature publish' -a '(__fish_git_flow_unpublished_branches feature)' -d 'Feature branch'
 
@@ -154,6 +159,11 @@ complete -f -c git -n '__fish_git_flow_using_command release finish' -s m -d 'Us
 complete -f -c git -n '__fish_git_flow_using_command release finish' -s p -d 'Push to $ORIGIN after performing finish'
 complete -f -c git -n '__fish_git_flow_using_command release finish' -a '(__fish_git_flow_branches release)' -d 'Release branch'
 
+complete -f -c git -n '__fish_git_flow_using_command release' -a delete   -d 'Delete a feature branch'
+complete -f -c git -n '__fish_git_flow_using_command release delete' -s f -d 'Force deletion'
+complete -f -c git -n '__fish_git_flow_using_command release delete' -s r -d 'Delete remote branch'
+complete -f -c git -n '__fish_git_flow_using_command release delete' -a '(__fish_git_flow_branches release)' -d 'Release branch'
+
 complete -f -c git -n '__fish_git_flow_using_command release' -a publish  -d 'Publish a release branch to remote'
 complete -f -c git -n '__fish_git_flow_using_command release publish' -a '(__fish_git_flow_unpublished_branches release)' -d 'Release branch'
 
@@ -179,6 +189,10 @@ complete -f -c git -n '__fish_git_flow_using_command hotfix finish' -s m -d 'Use
 complete -f -c git -n '__fish_git_flow_using_command hotfix finish' -s p -d 'Push to $ORIGIN after performing finish'
 complete -f -c git -n '__fish_git_flow_using_command hotfix finish' -a '(__fish_git_flow_branches hotfix)' -d 'Hotfix branch'
 
+complete -f -c git -n '__fish_git_flow_using_command hotfix' -a delete   -d 'Delete a feature branch'
+complete -f -c git -n '__fish_git_flow_using_command hotfix delete' -s f -d 'Force deletion'
+complete -f -c git -n '__fish_git_flow_using_command hotfix delete' -s r -d 'Delete remote branch'
+complete -f -c git -n '__fish_git_flow_using_command hotfix delete' -a '(__fish_git_flow_branches hotfix)' -d 'Hotfix branch'
 
 
 ## git-flow support
