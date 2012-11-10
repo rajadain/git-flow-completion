@@ -1,7 +1,7 @@
 git-flow-completion
 ===================
 
-Bash, Zsh and fish completion support for [git-flow](http://github.com/nvie/gitflow).
+Bash, Zsh and fish completion support for [git-flow (AVH Edition)](http://github.com/petervanderdoes/gitflow).
 
 The contained completion routines provide support for completing:
 
@@ -15,7 +15,7 @@ Installation for Bash
 
 To achieve git-flow completion nirvana:
 
- 0. [Install git-completion](http://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion).
+ 0. [Install git-completion](http://github.com/petervanderdoes/git-flow-completion/wiki/Install-Bash-git-completion).
 
  1. Install `git-flow-completion.bash`. Either:
 
@@ -71,7 +71,10 @@ To achieve git-flow completion nirvana:
 
 The Fine Print
 --------------
+Author:
+Copyright 2012 Peter van der Does.
 
+Original Author:
 Copyright (c) 2011 [Justin Hileman](http://justinhileman.com)
 
 Distributed under the [MIT License](http://creativecommons.org/licenses/MIT/)
