@@ -3,7 +3,7 @@
 # git-flow-completion
 # ===================
 #
-# Fish completion support for [git-flow](http://github.com/nvie/gitflow)
+# Fish completion support for [git-flow (AVH Edition)](http://github.com/petervanderdoes/gitflow)
 #
 # The contained completion routines provide support for completing:
 #
@@ -22,7 +22,10 @@
 #
 # The Fine Print
 # --------------
+# Author:
+# Copyright 2012 Peter van der Does.
 #
+# Original Author:
 # Copyright (c) 2012 [Justin Hileman](http://justinhileman.com)
 #
 # Distributed under the [MIT License](http://creativecommons.org/licenses/MIT/)
