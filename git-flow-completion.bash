@@ -51,7 +51,7 @@
 
 _git_flow ()
 {
-	local subcommands="init feature release hotfix support help version"
+	local subcommands="init feature release hotfix support help version config"
 	local subcommand="$(__git_find_on_cmdline "$subcommands")"
 	if [ -z "$subcommand" ]; then
 		__gitcomp "$subcommands"
@@ -77,6 +77,10 @@ _git_flow ()
 		;;
 	support)
 		__git_flow_support
+		return
+		;;
+	config)
+		__git_flow_config
 		return
 		;;
 	*)
@@ -194,6 +198,30 @@ __git_flow_support ()
 	fi
 
 	case "$subcommand" in
+	*)
+		COMPREPLY=()
+		;;
+	esac
+}
+
+__git_flow_config ()
+{
+	local subcommands="list set"
+	local subcommand="$(__git_find_on_cmdline "$subcommands")"
+	if [ -z "$subcommand" ]; then
+		__gitcomp "$subcommands"
+		return
+	fi
+
+	case "$subcommand" in
+	set)
+		__gitcomp "
+			master develop
+			feature hotfix release support
+			versiontagprefix
+			"
+		return
+		;;
 	*)
 		COMPREPLY=()
 		;;

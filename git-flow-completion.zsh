@@ -36,6 +36,7 @@ _git-flow ()
 			subcommands=(
 				'init:Initialize a new git repo with support for the branching model.'
 				'feature:Manage your feature branches.'
+				'config:Manage your configuration.'
 				'release:Manage your release branches.'
 				'hotfix:Manage your hotfix branches.'
 				'support:Manage your support branches.'
@@ -66,6 +67,10 @@ _git-flow ()
 					(feature)
 						__git-flow-feature
 					;;
+					(config)
+					__git-flow-config
+					;;
+
 			esac
 		;;
 	esac
@@ -297,6 +302,49 @@ __git-flow-feature ()
 	esac
 }
 
+__git-flow-config ()
+{
+	local curcontext="$curcontext" state line
+	typeset -A opt_args
+
+	_arguments -C \
+		':command:->command' \
+		'*::options:->options'
+
+	case $state in
+		(command)
+
+			local -a subcommands
+			subcommands=(
+				'list:List the configuration. (Alias to `git flow config`)'
+				'set:Set the configuration option'
+			)
+			_describe -t commands 'git flow config' subcommands
+		;;
+
+		(options)
+			case $line[1] in
+
+				(set)
+					_arguments \
+						--local'[Use repository config file]' \
+						--global'[Use global config file]'\
+						--system'[Use system config file]'\
+						--file'[Use given config file]'\
+						':option:(master develop feature hotfix release support	versiontagprefix)'
+				;;
+
+				*)
+					_arguments \
+						--local'[Use repository config file]' \
+						--global'[Use global config file]'\
+						--system'[Use system config file]'\
+						--file'[Use given config file]'
+				;;
+			esac
+		;;
+	esac
+}
 __git_flow_version_list ()
 {
 	local expl
