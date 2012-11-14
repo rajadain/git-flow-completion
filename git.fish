@@ -207,3 +207,17 @@ complete -f -c git -n '__fish_git_flow_using_command support' -s v    -d 'Verbos
 complete -f -c git -n '__fish_git_flow_using_command support' -a start -d 'Start a new support branch'
 complete -f -c git -n '__fish_git_flow_using_command support start' -s F  -d 'Fetch from origin first'
 
+## git-flow config
+
+complete -f -c git -n '__fish_git_flow_using_command' -a config      -d 'Manage configuration'
+complete -f -c git -n '__fish_git_flow_using_command config' -a list -d 'List configuration'
+complete -f -c git -n '__fish_git_flow_using_command config list' -l local  -d 'Use repository config file'
+complete -f -c git -n '__fish_git_flow_using_command config list' -l global  -d 'Use global config file'
+complete -f -c git -n '__fish_git_flow_using_command config list' -l system  -d 'Use system config file'
+complete -f -c git -n '__fish_git_flow_using_command config list' -l file  -d 'Use given config file'
+
+complete -f -c git -n '__fish_git_flow_using_command config' -a set -d 'Set configuration option'
+complete -f -c git -n '__fish_git_flow_using_command config start' -l local  -d 'Use repository config file'
+complete -f -c git -n '__fish_git_flow_using_command config start' -l global  -d 'Use global config file'
+complete -f -c git -n '__fish_git_flow_using_command config start' -l system  -d 'Use system config file'
+complete -f -c git -n '__fish_git_flow_using_command config start' -l file  -d 'Use given config file'
