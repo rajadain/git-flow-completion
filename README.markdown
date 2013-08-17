@@ -1,5 +1,5 @@
-git-flow-completion
-===================
+# git-flow-completion
+
 
 Bash, Zsh and fish completion support for [git-flow (AVH Edition)](http://github.com/petervanderdoes/gitflow).
 
@@ -9,9 +9,14 @@ The contained completion routines provide support for completing:
  * feature, hotfix and release branches
  * remote feature, hotfix and release branch names
 
+## Changelog
 
-Installation for Bash
----------------------
+#### Current develop
+  * Update bash completion script.  
+    We added completion of flags and (sub)commands.
+    
+## Installation for Bash
+
 
 To achieve git-flow completion nirvana:
 
@@ -41,8 +46,8 @@ To achieve git-flow completion nirvana:
         }
 
 
-Installation for Zsh
---------------------
+## Installation for Zsh
+
 
 To achieve git-flow completion nirvana:
 
@@ -61,18 +66,17 @@ To achieve git-flow completion nirvana:
     3. Or, use this file as an oh-my-zsh plugin.
 
 
-Installation for fish
----------------------
+## Installation for fish
 
 To achieve git-flow completion nirvana:
 
  1. Install `git.fish` in your `~/.config/fish/completions` folder.
 
 
-The Fine Print
---------------
+## The Fine Print
+
 Author:
-Copyright 2012 Peter van der Does.
+Copyright 2012-2013 Peter van der Does.
 
 Original Author:
 Copyright (c) 2011 [Justin Hileman](http://justinhileman.com)
