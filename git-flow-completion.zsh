@@ -36,6 +36,7 @@ _git-flow ()
 			subcommands=(
 				'init:Initialize a new git repo with support for the branching model.'
 				'feature:Manage your feature branches.'
+				'config:Manage your configuration.'
 				'release:Manage your release branches.'
 				'hotfix:Manage your hotfix branches.'
 				'support:Manage your support branches.'
@@ -66,6 +67,10 @@ _git-flow ()
 					(feature)
 						__git-flow-feature
 					;;
+					(config)
+					__git-flow-config
+					;;
+
 			esac
 		;;
 	esac
@@ -90,6 +95,7 @@ __git-flow-release ()
 				'list:List all your release branches. (Alias to `git flow release`)'
 				'publish:Publish release branch to remote.'
 				'track:Checkout remote release branch.'
+				'delet:Delete a release branch.'
 			)
 			_describe -t commands 'git flow release' subcommands
 			_arguments \
@@ -112,6 +118,13 @@ __git-flow-release ()
 						-u'[Use the given GPG-key for the digital signature (implies -s)]'\
 						-m'[Use the given tag message]'\
 						-p'[Push to $ORIGIN after performing finish]'\
+						':version:__git_flow_version_list'
+				;;
+
+				(delete)
+					_arguments \
+						-f'[Force deletion]' \
+						-r'[Delete remote branch]' \
 						':version:__git_flow_version_list'
 				;;
 
@@ -150,6 +163,7 @@ __git-flow-hotfix ()
 			subcommands=(
 				'start:Start a new hotfix branch.'
 				'finish:Finish a hotfix branch.'
+				'delete:Delete a hotfix branch.'
 				'list:List all your hotfix branches. (Alias to `git flow hotfix`)'
 			)
 			_describe -t commands 'git flow hotfix' subcommands
@@ -174,6 +188,13 @@ __git-flow-hotfix ()
 						-u'[Use the given GPG-key for the digital signature (implies -s)]'\
 						-m'[Use the given tag message]'\
 						-p'[Push to $ORIGIN after performing finish]'\
+						':hotfix:__git_flow_hotfix_list'
+				;;
+
+				(delete)
+					_arguments \
+						-f'[Force deletion]' \
+						-r'[Delete remote branch]' \
 						':hotfix:__git_flow_hotfix_list'
 				;;
 
@@ -202,6 +223,7 @@ __git-flow-feature ()
 			subcommands=(
 				'start:Start a new feature branch.'
 				'finish:Finish a feature branch.'
+				'delete:Delete a feature branch.'
 				'list:List all your feature branches. (Alias to `git flow feature`)'
 				'publish:Publish feature branch to remote.'
 				'track:Checkout remote feature branch.'
@@ -229,6 +251,13 @@ __git-flow-feature ()
 					_arguments \
 						-F'[Fetch from origin before performing finish]' \
 						-r'[Rebase instead of merge]'\
+						':feature:__git_flow_feature_list'
+				;;
+
+				(delete)
+					_arguments \
+						-f'[Force deletion]' \
+						-r'[Delete remote branch]' \
 						':feature:__git_flow_feature_list'
 				;;
 
@@ -273,6 +302,49 @@ __git-flow-feature ()
 	esac
 }
 
+__git-flow-config ()
+{
+	local curcontext="$curcontext" state line
+	typeset -A opt_args
+
+	_arguments -C \
+		':command:->command' \
+		'*::options:->options'
+
+	case $state in
+		(command)
+
+			local -a subcommands
+			subcommands=(
+				'list:List the configuration. (Alias to `git flow config`)'
+				'set:Set the configuration option'
+			)
+			_describe -t commands 'git flow config' subcommands
+		;;
+
+		(options)
+			case $line[1] in
+
+				(set)
+					_arguments \
+						--local'[Use repository config file]' \
+						--global'[Use global config file]'\
+						--system'[Use system config file]'\
+						--file'[Use given config file]'\
+						':option:(master develop feature hotfix release support	versiontagprefix)'
+				;;
+
+				*)
+					_arguments \
+						--local'[Use repository config file]' \
+						--global'[Use global config file]'\
+						--system'[Use system config file]'\
+						--file'[Use given config file]'
+				;;
+			esac
+		;;
+	esac
+}
 __git_flow_version_list ()
 {
 	local expl

@@ -3,7 +3,7 @@
 # git-flow-completion
 # ===================
 #
-# Fish completion support for [git-flow](http://github.com/nvie/gitflow)
+# Fish completion support for [git-flow (AVH Edition)](http://github.com/petervanderdoes/gitflow)
 #
 # The contained completion routines provide support for completing:
 #
@@ -22,7 +22,10 @@
 #
 # The Fine Print
 # --------------
+# Author:
+# Copyright 2012 Peter van der Does.
 #
+# Original Author:
 # Copyright (c) 2012 [Justin Hileman](http://justinhileman.com)
 #
 # Distributed under the [MIT License](http://creativecommons.org/licenses/MIT/)
@@ -118,6 +121,11 @@ complete -f -c git -n '__fish_git_flow_using_command feature finish' -s F -d 'Fe
 complete -f -c git -n '__fish_git_flow_using_command feature finish' -s r -d 'Rebase instead of merging'
 complete -f -c git -n '__fish_git_flow_using_command feature finish' -a '(__fish_git_flow_branches feature)' -d 'Feature branch'
 
+complete -f -c git -n '__fish_git_flow_using_command feature' -a delete   -d 'Delete a feature branch'
+complete -f -c git -n '__fish_git_flow_using_command feature delete' -s f -d 'Force deletion'
+complete -f -c git -n '__fish_git_flow_using_command feature delete' -s r -d 'Delete remote branch'
+complete -f -c git -n '__fish_git_flow_using_command feature delete' -a '(__fish_git_flow_branches feature)' -d 'Feature branch'
+
 complete -f -c git -n '__fish_git_flow_using_command feature' -a publish  -d 'Publish a feature branch to remote'
 complete -f -c git -n '__fish_git_flow_using_command feature publish' -a '(__fish_git_flow_unpublished_branches feature)' -d 'Feature branch'
 
@@ -154,6 +162,11 @@ complete -f -c git -n '__fish_git_flow_using_command release finish' -s m -d 'Us
 complete -f -c git -n '__fish_git_flow_using_command release finish' -s p -d 'Push to $ORIGIN after performing finish'
 complete -f -c git -n '__fish_git_flow_using_command release finish' -a '(__fish_git_flow_branches release)' -d 'Release branch'
 
+complete -f -c git -n '__fish_git_flow_using_command release' -a delete   -d 'Delete a feature branch'
+complete -f -c git -n '__fish_git_flow_using_command release delete' -s f -d 'Force deletion'
+complete -f -c git -n '__fish_git_flow_using_command release delete' -s r -d 'Delete remote branch'
+complete -f -c git -n '__fish_git_flow_using_command release delete' -a '(__fish_git_flow_branches release)' -d 'Release branch'
+
 complete -f -c git -n '__fish_git_flow_using_command release' -a publish  -d 'Publish a release branch to remote'
 complete -f -c git -n '__fish_git_flow_using_command release publish' -a '(__fish_git_flow_unpublished_branches release)' -d 'Release branch'
 
@@ -179,6 +192,10 @@ complete -f -c git -n '__fish_git_flow_using_command hotfix finish' -s m -d 'Use
 complete -f -c git -n '__fish_git_flow_using_command hotfix finish' -s p -d 'Push to $ORIGIN after performing finish'
 complete -f -c git -n '__fish_git_flow_using_command hotfix finish' -a '(__fish_git_flow_branches hotfix)' -d 'Hotfix branch'
 
+complete -f -c git -n '__fish_git_flow_using_command hotfix' -a delete   -d 'Delete a feature branch'
+complete -f -c git -n '__fish_git_flow_using_command hotfix delete' -s f -d 'Force deletion'
+complete -f -c git -n '__fish_git_flow_using_command hotfix delete' -s r -d 'Delete remote branch'
+complete -f -c git -n '__fish_git_flow_using_command hotfix delete' -a '(__fish_git_flow_branches hotfix)' -d 'Hotfix branch'
 
 
 ## git-flow support
@@ -190,3 +207,17 @@ complete -f -c git -n '__fish_git_flow_using_command support' -s v    -d 'Verbos
 complete -f -c git -n '__fish_git_flow_using_command support' -a start -d 'Start a new support branch'
 complete -f -c git -n '__fish_git_flow_using_command support start' -s F  -d 'Fetch from origin first'
 
+## git-flow config
+
+complete -f -c git -n '__fish_git_flow_using_command' -a config      -d 'Manage configuration'
+complete -f -c git -n '__fish_git_flow_using_command config' -a list -d 'List configuration'
+complete -f -c git -n '__fish_git_flow_using_command config list' -l local  -d 'Use repository config file'
+complete -f -c git -n '__fish_git_flow_using_command config list' -l global  -d 'Use global config file'
+complete -f -c git -n '__fish_git_flow_using_command config list' -l system  -d 'Use system config file'
+complete -f -c git -n '__fish_git_flow_using_command config list' -l file  -d 'Use given config file'
+
+complete -f -c git -n '__fish_git_flow_using_command config' -a set -d 'Set configuration option'
+complete -f -c git -n '__fish_git_flow_using_command config start' -l local  -d 'Use repository config file'
+complete -f -c git -n '__fish_git_flow_using_command config start' -l global  -d 'Use global config file'
+complete -f -c git -n '__fish_git_flow_using_command config start' -l system  -d 'Use system config file'
+complete -f -c git -n '__fish_git_flow_using_command config start' -l file  -d 'Use given config file'
