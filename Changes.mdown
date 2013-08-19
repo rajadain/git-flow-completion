@@ -2,6 +2,9 @@
  
 # Changelog
 
+#### 0.6.0-dev.1
+* Preparation for new development cycle.
+
 #### 0.5.0
 [Peter van der Does][petervanderdoes]
 * Update bash completion script.  
