@@ -2,7 +2,7 @@
  
 # Changelog
 
-#### 0.6.0-dev.1
+#### 0.5.1
 * Preparation for new development cycle.
 
 #### 0.5.0
