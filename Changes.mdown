@@ -2,7 +2,7 @@
  
 # Changelog
 
-#### 0.5.0-rc.1
+#### 0.5.0
 [Peter van der Does][petervanderdoes]
 * Update bash completion script.  
     We added completion of flags and (sub)commands.
