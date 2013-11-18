@@ -41,6 +41,10 @@ _git-flow ()
 				'hotfix:Manage your hotfix branches.'
 				'support:Manage your support branches.'
 				'version:Shows version information.'
+				'finish:Finish the branch you are currently on.'
+				'delete:Delete the branch you are currently on.'
+				'publish:Publish the branch you are currently on.'
+				'rebase:Rebase the branch you are currently on.'
 			)
 			_describe -t commands 'git flow' subcommands
 		;;
@@ -95,6 +99,7 @@ __git-flow-release ()
 				'list:List all your release branches. (Alias to `git flow release`)'
 				'publish:Publish release branch to remote.'
 				'track:Checkout remote release branch.'
+				'rebase:Rebase from integration branch.'
 				'delet:Delete a release branch.'
 			)
 			_describe -t commands 'git flow release' subcommands
@@ -138,6 +143,12 @@ __git-flow-release ()
 						':version:__git_flow_version_list'
 				;;
 
+				(rebase)
+					_arguments \
+						-i'[Do an interactive rebase]' \
+						':branch:__git_branch_names'
+				;;
+
 				*)
 					_arguments \
 						-v'[Verbose (more) output]'
@@ -164,6 +175,7 @@ __git-flow-hotfix ()
 				'start:Start a new hotfix branch.'
 				'finish:Finish a hotfix branch.'
 				'delete:Delete a hotfix branch.'
+				'rebase:Rebase from integration branch.'
 				'list:List all your hotfix branches. (Alias to `git flow hotfix`)'
 			)
 			_describe -t commands 'git flow hotfix' subcommands
@@ -196,6 +208,12 @@ __git-flow-hotfix ()
 						-f'[Force deletion]' \
 						-r'[Delete remote branch]' \
 						':hotfix:__git_flow_hotfix_list'
+				;;
+
+				(rebase)
+					_arguments \
+						-i'[Do an interactive rebase]' \
+						':branch:__git_branch_names'
 				;;
 
 				*)
