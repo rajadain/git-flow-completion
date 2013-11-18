@@ -55,7 +55,7 @@ __git_flow_config_file_options="
 
 _git_flow ()
 {
-	local subcommands="init feature release hotfix support help version config finish delete"
+	local subcommands="init feature release hotfix support help version config finish delete publish rebase"
 	local subcommand="$(__git_find_on_cmdline "$subcommands")"
 	if [ -z "$subcommand" ]; then
 		__gitcomp "$subcommands"
@@ -230,6 +230,19 @@ __git_flow_release ()
 		__gitcomp_nl "$(__git_flow_list_local_branches 'release')"
 		return
 		;;
+	rebase)
+		case "$cur" in
+		--*)
+			__gitcomp "
+					--nointeractive --interactive
+					--nopreserve-merges --preserve-merges
+				"
+			return
+			;;
+		esac
+		__gitcomp_nl "$(__git_flow_list_local_branches 'release')"
+		return
+		;;
 	delete)
 		case "$cur" in
 		--*)
@@ -302,6 +315,19 @@ __git_flow_hotfix ()
 		__gitcomp_nl "$(__git_flow_list_local_branches 'hotfix')"
 		return
 		;;
+	rebase)
+		case "$cur" in
+		--*)
+			__gitcomp "
+					--nointeractive --interactive
+					--nopreserve-merges --preserve-merges
+				"
+			return
+			;;
+		esac
+		__gitcomp_nl "$(__git_flow_list_local_branches 'hotfix')"
+		return
+		;;
 	delete)
 		case "$cur" in
 		--*)
@@ -359,6 +385,19 @@ __git_flow_support ()
 			return
 			;;
 		esac
+		return
+		;;
+	rebase)
+		case "$cur" in
+		--*)
+			__gitcomp "
+					--nointeractive --interactive
+					--nopreserve-merges --preserve-merges
+				"
+			return
+			;;
+		esac
+		__gitcomp_nl "$(__git_flow_list_local_branches 'support')"
 		return
 		;;
 	*)
