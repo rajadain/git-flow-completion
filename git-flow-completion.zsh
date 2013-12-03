@@ -100,7 +100,7 @@ __git-flow-release ()
 				'publish:Publish release branch to remote.'
 				'track:Checkout remote release branch.'
 				'rebase:Rebase from integration branch.'
-				'delet:Delete a release branch.'
+				'delete:Delete a release branch.'
 			)
 			_describe -t commands 'git flow release' subcommands
 			_arguments \
