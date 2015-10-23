@@ -3,10 +3,9 @@
 # Changelog
 
 #### 0.5.2-rc.1
-* Preparation for new development cycle.
-
-#### 0.5.1
-* Preparation for new development cycle.
+[Peter van der Does][petervanderdoes]
+* Add missing commands: publish, rebase, bugfix, finish, delete
+* Add rebase subcommand for release, hotfix, support
 
 #### 0.5.0
 [Peter van der Does][petervanderdoes]
