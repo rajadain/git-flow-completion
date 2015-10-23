@@ -2,7 +2,7 @@
  
 # Changelog
 
-#### 0.5.2-rc.1
+#### 0.5.2
 [Peter van der Does][petervanderdoes]
 * Add missing commands: publish, rebase, bugfix, finish, delete
 * Add rebase subcommand for release, hotfix, support
