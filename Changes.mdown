@@ -1,9 +1,11 @@
 [petervanderdoes]: https://github.com/petervanderdoes "Peter van der Does on github"
+[erlendk]: https://github.com/erlendk "Erlend Kristiansen on github"
  
 # Changelog
 
-#### 0.6.0-dev.1
-* Preparation for new development cycle.
+#### 0.6.0-dev.3
+[Erlend Kristiansen][erlendk]
+* Fix for bugfix command
 
 #### 0.5.2
 [Peter van der Does][petervanderdoes]
