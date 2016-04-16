@@ -350,7 +350,7 @@ __git-flow-bugfix ()
                 'checkout:Checkout local bugfix branch.'
                 'pull:Pull changes from remote.'
             )
-            _describe -t commands 'git flow feature' subcommands
+            _describe -t commands 'git flow bugfix' subcommands
             _arguments \
                 -v'[Verbose (more) output]'
         ;;
@@ -361,7 +361,7 @@ __git-flow-bugfix ()
                 (start)
                     _arguments \
                         -F'[Fetch from origin before performing finish]'\
-                        ':bugfix:__git_flow_bugfixe_list'\
+                        ':bugfix:__git_flow_bugfix_list'\
                         ':branch-name:__git_branch_names'
                 ;;
 
@@ -381,7 +381,7 @@ __git-flow-bugfix ()
 
                 (publish)
                     _arguments \
-                        ':bugfixe:__git_flow_bugfix_list'\
+                        ':bugfix:__git_flow_bugfix_list'\
                 ;;
 
                 (track)
@@ -402,7 +402,7 @@ __git-flow-bugfix ()
 
                 (checkout)
                     _arguments \
-                        ':branch:__git_flow_feature_list'\
+                        ':branch:__git_flow_bugfix_list'\
                 ;;
 
                 (pull)
@@ -449,7 +449,7 @@ __git-flow-config ()
                         --global'[Use global config file]'\
                         --system'[Use system config file]'\
                         --file'[Use given config file]'\
-                        ':option:(master develop feature hotfix release support	versiontagprefix)'
+                        ':option:(master develop feature hotfix release support versiontagprefix)'
                 ;;
 
                 *)
@@ -488,12 +488,12 @@ __git_flow_feature_list ()
 __git_flow_bugfix_list ()
 {
     local expl
-    declare -a features
+    declare -a bugfixes
 
-    bugfix=(${${(f)"$(_call_program bugfix git flow bugfix list 2> /dev/null | tr -d ' |*')"}})
+    bugfixes=(${${(f)"$(_call_program bugfixes git flow bugfix list 2> /dev/null | tr -d ' |*')"}})
     __git_command_successful || return
 
-    _wanted features expl 'feature' compadd $features
+    _wanted bugfixes expl 'bugfix' compadd $bugfixes
 }
 
 __git_remotes () {
