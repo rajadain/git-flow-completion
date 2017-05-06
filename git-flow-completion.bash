@@ -119,7 +119,7 @@ __git_flow_init ()
 
 __git_flow_feature ()
 {
-    local subcommands="list start finish publish track diff rebase checkout pull help delete"
+    local subcommands="list start finish publish track diff rebase checkout pull help delete rename"
     local subcommand="$(__git_find_on_cmdline "$subcommands")"
 
     if [ -z "$subcommand" ]; then
@@ -202,7 +202,7 @@ __git_flow_feature ()
 
 __git_flow_bugfix ()
 {
-    local subcommands="list start finish publish track diff rebase checkout pull help delete"
+    local subcommands="list start finish publish track diff rebase checkout pull help delete rename"
     local subcommand="$(__git_find_on_cmdline "$subcommands")"
 
     if [ -z "$subcommand" ]; then
@@ -372,7 +372,7 @@ __git_flow_release ()
 
 __git_flow_hotfix ()
 {
-    local subcommands="list start finish track publish help delete"
+    local subcommands="list start finish track publish help delete rename"
     local subcommand="$(__git_find_on_cmdline "$subcommands")"
     if [ -z "$subcommand" ]; then
         __gitcomp "$subcommands"
