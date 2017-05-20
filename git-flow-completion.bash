@@ -8,8 +8,8 @@
 # The contained completion routines provide support for completing:
 #
 #  * git-flow init and version
-#  * feature, hotfix and release branches
-#  * remote feature, hotfix and release branch names
+#  * feature, bugfix, hotfix and release branches
+#  * remote feature, bugfix, hotfix and release branch names
 #
 #
 # Installation
@@ -119,7 +119,7 @@ __git_flow_init ()
 
 __git_flow_feature ()
 {
-    local subcommands="list start finish publish track diff rebase checkout pull help delete"
+    local subcommands="list start finish publish track diff rebase checkout pull help delete rename"
     local subcommand="$(__git_find_on_cmdline "$subcommands")"
 
     if [ -z "$subcommand" ]; then
@@ -202,7 +202,7 @@ __git_flow_feature ()
 
 __git_flow_bugfix ()
 {
-    local subcommands="list start finish publish track diff rebase checkout pull help delete"
+    local subcommands="list start finish publish track diff rebase checkout pull help delete rename"
     local subcommand="$(__git_find_on_cmdline "$subcommands")"
 
     if [ -z "$subcommand" ]; then
@@ -216,7 +216,7 @@ __git_flow_bugfix ()
         return
         ;;
     checkout)
-        __gitcomp_nl "$(__git_flow_list_local_branches 'feature')"
+        __gitcomp_nl "$(__git_flow_list_local_branches 'bugfix')"
         return
         ;;
     delete)
@@ -229,7 +229,7 @@ __git_flow_bugfix ()
             return
             ;;
         esac
-        __gitcomp_nl "$(__git_flow_list_local_branches 'feature')"
+        __gitcomp_nl "$(__git_flow_list_local_branches 'bugfix')"
         return
         ;;
     finish)
@@ -249,11 +249,11 @@ __git_flow_bugfix ()
             return
             ;;
         esac
-        __gitcomp_nl "$(__git_flow_list_local_branches 'feature')"
+        __gitcomp_nl "$(__git_flow_list_local_branches 'bugfix')"
         return
         ;;
     diff)
-        __gitcomp_nl "$(__git_flow_list_local_branches 'feature')"
+        __gitcomp_nl "$(__git_flow_list_local_branches 'bugfix')"
         return
         ;;
     rebase)
@@ -266,15 +266,15 @@ __git_flow_bugfix ()
             return
             ;;
         esac
-        __gitcomp_nl "$(__git_flow_list_local_branches 'feature')"
+        __gitcomp_nl "$(__git_flow_list_local_branches 'bugfix')"
         return
         ;;
     publish)
-        __gitcomp_nl "$(__git_flow_list_branches 'feature')"
+        __gitcomp_nl "$(__git_flow_list_branches 'bugfix')"
         return
         ;;
     track)
-        __gitcomp_nl "$(__git_flow_list_branches 'feature')"
+        __gitcomp_nl "$(__git_flow_list_branches 'bugfix')"
         return
         ;;
     *)
@@ -372,7 +372,7 @@ __git_flow_release ()
 
 __git_flow_hotfix ()
 {
-    local subcommands="list start finish track publish help delete"
+    local subcommands="list start finish track publish help delete rename"
     local subcommand="$(__git_find_on_cmdline "$subcommands")"
     if [ -z "$subcommand" ]; then
         __gitcomp "$subcommands"
@@ -517,7 +517,7 @@ __git_flow_config ()
         esac
         __gitcomp "
             master develop
-            feature hotfix release support
+            feature bugfix hotfix release support
             versiontagprefix
             "
         return
@@ -543,7 +543,7 @@ __git_flow_config ()
 __git_flow_prefix ()
 {
     case "$1" in
-    feature|release|hotfix|support)
+    feature|bugfix|release|hotfix|support)
         git config "gitflow.prefix.$1" 2> /dev/null || echo "$1/"
         return
         ;;
