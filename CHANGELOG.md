@@ -4,7 +4,7 @@
 
 # Changelog
 
-#### 0.6.0-rc.1
+#### 0.6.0
 [Peter van der Does][petervanderdoes]
 * Add rename command
 
