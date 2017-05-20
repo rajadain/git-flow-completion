@@ -2,9 +2,8 @@ git-flow completion AVH Authors
 
 This software consists of voluntary contributions made by many
 individuals. For exact contribution history, see the revision history
-(Changes.mdown) and logs, available at
+(CHANGELOG.md) and logs, available at
 http://github.com/petervanderdoes/git-flow-completion
-
 
 Justin Hileman
 Peter van der Does
@@ -22,9 +21,8 @@ Milan Mitrović
 Seth Voltz
 Vincent Driessen
 nhuray
-
-
 Portions of the project are derived from other open source works are clearly
 marked.
 
 This file is auto generated, any changes will be lost.
+
