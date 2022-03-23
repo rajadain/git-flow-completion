@@ -70,7 +70,7 @@ To achieve git-flow completion nirvana:
 
 To achieve git-flow completion nirvana:
 
- 1. Install `git.fish` in your `~/.config/fish/completions` folder.
+ 1. Install `git-flow.fish` in your `~/.config/fish/completions` folder.
 
 
 ## The Fine Print
